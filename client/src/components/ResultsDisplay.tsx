@@ -65,7 +65,7 @@ export default function ResultsDisplay({ result }: ResultsDisplayProps) {
         });
       }
     }
-  }, [result]);
+  }, [result, activeTab]);
 
   // Debt Breakdown Chart
   useEffect(() => {

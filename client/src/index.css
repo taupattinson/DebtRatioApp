@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Nord Theme Colors */
+  --polar-night-1: 220 16% 22%;  /* #2E3440 */
+  --polar-night-2: 222 16% 28%;  /* #3B4252 */
+  --polar-night-3: 220 17% 32%;  /* #434C5E */
+  --polar-night-4: 220 16% 36%;  /* #4C566A */
+  --snow-storm-1: 218 27% 88%;   /* #D8DEE9 */
+  --snow-storm-2: 219 28% 92%;   /* #E5E9F0 */
+  --snow-storm-3: 218 27% 94%;   /* #ECEFF4 */
+  --frost-1: 179 25% 65%;        /* #8FBCBB */
+  --frost-2: 193 43% 67%;        /* #88C0D0 */
+  --frost-3: 210 34% 63%;        /* #81A1C1 */
+  --frost-4: 213 32% 52%;        /* #5E81AC */
+  --aurora-red: 354 42% 56%;     /* #BF616A */
+  --aurora-orange: 14 51% 63%;   /* #D08770 */
+  --aurora-yellow: 40 71% 73%;   /* #EBCB8B */
+  --aurora-green: 92 28% 65%;    /* #A3BE8C */
+  --aurora-purple: 311 20% 63%;  /* #B48EAD */
+
+  /* Base Colors */
+  --background: var(--snow-storm-3);
+  --foreground: var(--polar-night-1);
+  
+  /* Card Colors */
+  --card: 0 0% 100%;
+  --card-foreground: var(--polar-night-1);
+  
+  /* Popover Colors */
+  --popover: 0 0% 100%;
+  --popover-foreground: var(--polar-night-1);
+  
+  /* Border & Ring */
+  --border: var(--snow-storm-1);
+  --input: var(--snow-storm-1);
+  --ring: var(--frost-4);
+  
+  /* Primary Colors */
+  --primary: var(--frost-4);
+  --primary-foreground: 0 0% 100%;
+  
+  /* Secondary Colors */
+  --secondary: var(--snow-storm-1);
+  --secondary-foreground: var(--polar-night-2);
+  
+  /* Accent Colors */
+  --accent: var(--snow-storm-2);
+  --accent-foreground: var(--polar-night-2);
+  
+  /* Muted Colors */
+  --muted: var(--snow-storm-1);
+  --muted-foreground: var(--polar-night-4);
+  
+  /* Error Colors */
+  --destructive: var(--aurora-red);
+  --destructive-foreground: 0 0% 100%;
+  
+  /* Chart Colors */
+  --chart-1: var(--aurora-green);
+  --chart-2: var(--aurora-yellow);
+  --chart-3: var(--aurora-red);
+  --chart-4: var(--frost-3);
+  --chart-5: var(--frost-1);
+  
+  /* Other */
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    @apply bg-background text-foreground;
+  }
+  
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+}

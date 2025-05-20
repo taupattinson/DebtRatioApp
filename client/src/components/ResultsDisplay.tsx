@@ -16,17 +16,17 @@ export default function ResultsDisplay({ result }: ResultsDisplayProps) {
   const breakdownChartInstance = useRef<Chart | null>(null);
   const [activeTab, setActiveTab] = useState("overview");
 
-  // Main DTI Chart
+ 
   useEffect(() => {
     if (result && chartRef.current) {
-      // Destroy existing chart if it exists
+ 
       if (chartInstance.current) {
         chartInstance.current.destroy();
       }
 
       const ctx = chartRef.current.getContext("2d");
       if (ctx) {
-        // Determine color based on DTI value
+ 
         let color;
         if (result.percentage <= 20) {
           color = "#A3BE8C"; // Nord green
@@ -36,7 +36,7 @@ export default function ResultsDisplay({ result }: ResultsDisplayProps) {
           color = "#BF616A"; // Nord red
         }
 
-        // Create new chart
+ 
         chartInstance.current = new Chart(ctx, {
           type: "doughnut",
           data: {
@@ -67,17 +67,17 @@ export default function ResultsDisplay({ result }: ResultsDisplayProps) {
     }
   }, [result, activeTab]);
 
-  // Debt Breakdown Chart
+ 
   useEffect(() => {
     if (result?.debtCategories && result.debtCategories.length > 0 && breakdownChartRef.current) {
-      // Destroy existing chart if it exists
+ 
       if (breakdownChartInstance.current) {
         breakdownChartInstance.current.destroy();
       }
 
       const ctx = breakdownChartRef.current.getContext("2d");
       if (ctx) {
-        // Generate colors based on Nord palette
+ 
         const colors = [
           "#5E81AC", // Primary Nord blue
           "#81A1C1", // Lighter blue
@@ -93,7 +93,7 @@ export default function ResultsDisplay({ result }: ResultsDisplayProps) {
         const data = result.debtCategories.map(category => category.amount);
         const labels = result.debtCategories.map(category => category.type);
         
-        // Create new chart
+ 
         breakdownChartInstance.current = new Chart(ctx, {
           type: "pie",
           data: {
@@ -136,7 +136,7 @@ export default function ResultsDisplay({ result }: ResultsDisplayProps) {
     }
   }, [result?.debtCategories, activeTab]);
 
-  // Get risk assessment data based on result
+ 
   const getRiskData = () => {
     if (!result) return null;
     
@@ -163,7 +163,7 @@ export default function ResultsDisplay({ result }: ResultsDisplayProps) {
 
   const riskData = getRiskData();
 
-  // Determine if we can show debt breakdown
+ 
   const hasDebtBreakdown = result?.debtCategories && result.debtCategories.length > 0;
 
   return (
@@ -172,12 +172,12 @@ export default function ResultsDisplay({ result }: ResultsDisplayProps) {
         <h2 className="text-xl font-semibold mb-4 sm:mb-6 text-[#5E81AC]">Результат</h2>
         
         {!result ? (
-          // Initial State Message
+ 
           <div className="py-10 sm:py-16 text-center text-[#4C566A]">
             <p>Заполните форму и нажмите "Рассчитать DTI" для получения результата</p>
           </div>
         ) : (
-          // Results Container
+ 
           <div>
             {/* DTI Percentage */}
             <div className="text-center mb-4 sm:mb-6">

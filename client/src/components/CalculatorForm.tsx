@@ -21,7 +21,7 @@ export default function CalculatorForm({ onCalculate }: CalculatorFormProps) {
   const [error, setError] = useState<string | null>(null);
   const [showDebtBreakdown, setShowDebtBreakdown] = useState<boolean>(false);
 
-  // Update total debts when debt categories change
+ 
   useEffect(() => {
     if (showDebtBreakdown) {
       const totalCategorizedDebt = debtCategories.reduce((sum, category) => sum + category.amount, 0);
@@ -63,13 +63,13 @@ export default function CalculatorForm({ onCalculate }: CalculatorFormProps) {
   const toggleDebtBreakdown = () => {
     setShowDebtBreakdown(!showDebtBreakdown);
     
-    // Reset categories or sync with total amount when toggling
+ 
     if (!showDebtBreakdown) {
-      // If turning on breakdown, initialize with current total debt
+ 
       const currentDebt = parseFloat(debts) || 0;
       if (debtCategories.length === defaultDebtCategories.length && 
           debtCategories.every(cat => cat.amount === 0)) {
-        // Distribute evenly if categories are at default state
+ 
         const perCategory = Math.floor(currentDebt / debtCategories.length);
         const updatedCategories = debtCategories.map(cat => ({
           ...cat,
@@ -86,7 +86,7 @@ export default function CalculatorForm({ onCalculate }: CalculatorFormProps) {
     const incomeValue = parseFloat(income);
     const debtsValue = parseFloat(debts);
     
-    // Validate inputs
+ 
     if (!income || isNaN(incomeValue) || incomeValue <= 0) {
       setError("Пожалуйста, введите корректное значение дохода");
       return;
@@ -105,7 +105,7 @@ export default function CalculatorForm({ onCalculate }: CalculatorFormProps) {
       }
     }
     
-    // Clear error if validation passes
+ 
     setError(null);
     onCalculate(incomeValue, debtsValue, showDebtBreakdown ? debtCategories : []);
   };

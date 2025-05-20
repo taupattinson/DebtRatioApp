@@ -2,7 +2,6 @@
 
 DebtInsightCalculator — современное веб-приложение для расчёта коэффициента долговой нагрузки (DTI) с визуализацией уровня финансовой устойчивости пользователя.
 ![Image](https://github.com/user-attachments/assets/5321a4bf-5759-4adb-82e4-754f683dc76b)
-![Image](https://github.com/user-attachments/assets/cf5fe269-f6d9-4f1b-a000-e486e8308788)
 
 ## О проекте
 
@@ -27,3 +26,5 @@ git clone <репозиторий>
 cd DebtInsightCalculator
 npm install
 npm run dev
+```
+![Image](https://github.com/user-attachments/assets/cf5fe269-f6d9-4f1b-a000-e486e8308788)
